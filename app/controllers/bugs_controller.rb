@@ -41,7 +41,7 @@ class BugsController < ApplicationController
   end
 
   def bug_params
-    params[:bug].permit(:title, :body,:status)
+    params[:bug].permit(:title, :body,:status, :filepicker_url)
   end
 
 end
