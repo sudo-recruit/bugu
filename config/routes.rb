@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  
   root "fronted#index"
-
+  
+  devise_for :users
   resources :bugs do 
     resources :comments
   end

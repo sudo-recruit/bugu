@@ -1,0 +1,9 @@
+
+<ul>
+<% @bugs.each do |bug| %>
+  <li>
+  	<h2><%= link_to bug_path(bug) do %><%= bug.title %><% end %></h2>
+    <p><%= bug.body %></p>
+  </li>
+<% end %>
+</ul>

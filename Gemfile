@@ -17,7 +17,7 @@ gem 'devise', '~> 3.4.0'
 gem 'rails_12factor'
 gem 'simple_form'
 gem 'cancancan', '~> 1.10'
-
+gem 'materialize-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

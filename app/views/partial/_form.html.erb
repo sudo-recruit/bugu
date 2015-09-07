@@ -1,0 +1,4 @@
+<%= form_for([@bug, @bug.comments.build]) do |f| %>
+	<%= f.text_field :content %>
+	<%= f.submit '送出',class: 'btn',id: 'comment-button' %>
+<% end %>

@@ -1,0 +1,17 @@
+<div class="row">
+  <h2><%= @bug.title %></h2>
+  <p><%= @bug.body %></p>
+  <p><%= @bug.status %></p>
+</div>
+
+<div class="row">
+  <%= render @bug.comments %>
+</div>
+
+<div>
+  <%= form_for @bug, :url => {:controller => 'bugs', :action => 'update'} do |f| %>
+  <%= f.select :status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: @bug.status), {} , class: "form-control" %>
+  <%= f.submit 'submit' %>
+  <% end %>
+</div>
+<%= render 'partial/form' %>
