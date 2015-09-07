@@ -9,12 +9,12 @@
 <% end %>
 
 <script>
+  //GET CONTENT
   var editor = new EpicEditor().load();
   $("#comment-button").on('click', function(){
-  	console.log("clicked");
-  	var content = editor.getElement('previewer').body.innerHTML;
-  	console.log(content);
+  	var content = editor.getElement('previewer').getElementById('epiceditor-preview').innerHTML;
+
   	$("#comment_content").val(content);
-  	console.log($("#comment-content").val());
+  	
   });
 </script>
