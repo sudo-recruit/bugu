@@ -10,5 +10,11 @@
 
 <%= yield %>
 
+<% if Rails.env.development? %>
+  <%= debug params %>
+<% end %>
+<%= yield :javascripts %>
 </body>
 </html>
+
+
