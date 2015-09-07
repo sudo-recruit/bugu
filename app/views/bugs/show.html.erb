@@ -1,7 +1,11 @@
 <div class="row">
   <h2><%= @bug.title %></h2>
+	
+  <% if @bug.filepicker_url.present? %>
+    <%= image_tag @bug.filepicker_url %>
+  <% end %>
   <p><%= @bug.body %></p>
-  <p><%= @bug.status %></p>
+  <p><%= convert_chinese @bug %></p>
 </div>
 
 <div class="row">

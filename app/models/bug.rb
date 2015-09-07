@@ -3,5 +3,7 @@ class Bug < ActiveRecord::Base
   has_many :comments
 
   
-  enum status: {unread: 1, in_process: 2, done: 3}
+  enum status: {unread: 0, in_process: 1, done: 2}
+
+  validates :title, :body, presence: true
 end
