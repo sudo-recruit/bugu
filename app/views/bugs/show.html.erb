@@ -9,15 +9,10 @@
 </div>
 
 <div class="row">
+  <h3>解決方法</h3>
   <%= render @bug.comments %>
 </div>
 
-<div>
-  <%= form_for @bug, :url => {:controller => 'bugs', :action => 'update'} do |f| %>
-  <div id="b_selectbox">
-  <%= f.select :status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: @bug.status), {} , class: "form-control" %>
-  <%= f.submit 'submit' %>
-  
-  <% end %>
+<div class="row">
+  <%= render 'partial/form' %>
 </div>
-<%= render 'partial/form' %>

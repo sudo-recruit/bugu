@@ -12,11 +12,11 @@ class BugsController < ApplicationController
   end
 
   def new
-    @bug = Bug.new()
+    @bug = current_user.bugs.create()
   end
 
   def create
-    @bug =  Bug.new(bug_params)
+    @bug = current_user.bugs.create(bug_params)
     @bug.status = params[:bug][:status].to_i
     if @bug.save
       redirect_to bug_path(@bug)
