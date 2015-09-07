@@ -1,4 +1,5 @@
 <%= form_for([@bug, comment = @bug.comments.build]) do |f| %>
+	<div id="epiceditor"></div>
 	<%= f.text_field :content %>
 	<div id="b_selectbox">
 	<%= f.select :change_status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: comment.change_status), {} , class: "form-control" %>
@@ -6,3 +7,14 @@
      
 	</div>
 <% end %>
+
+<script>
+  var editor = new EpicEditor().load();
+  $("#comment-button").on('click', function(){
+  	console.log("clicked");
+  	var content = editor.getElement('previewer').body.innerHTML;
+  	console.log(content);
+  	$("#comment_content").val(content);
+  	console.log($("#comment-content").val());
+  });
+</script>
