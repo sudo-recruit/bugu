@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <nav class="dbd_navbar">
+    <ul class="right">
+      <% if !user_signed_in? %>
+      <li><%= link_to "快速登入", user_omniauth_authorize_path(:google_oauth2) %></li>
+      <% else %>
+      <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
 <div id="<%= current_page %>">	
 <div class="container">
   <%= yield %>	
@@ -15,9 +26,17 @@
 <% if Rails.env.development? %>
   <%= debug params %>
 <% end %>
+
+</body>
+<% if notice != nil %>
+<script>
+  
+  Materialize.toast('<%= flash[:notice] %>',4000,'rounded');
+ 
+</script>
+<% end %>
 <%= yield :javascripts %>
 <%= filepicker_js_include_tag %>
-</body>
 </html>
 
 
