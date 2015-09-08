@@ -18,3 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+
+# Ignore node moudles
+/node_moudles

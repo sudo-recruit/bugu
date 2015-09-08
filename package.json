@@ -1,0 +1,26 @@
+{
+  "name": "BUGU",
+  "version": "0.1.0",
+  "description": "Bug fix",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudo-recruit/bugu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/sudo-recruit/bugu",
+  "dependencies": {
+    "rx": "^3.1.2"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "webpack": "^1.12.0"
+  }
+}
