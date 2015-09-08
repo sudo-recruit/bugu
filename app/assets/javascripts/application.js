@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require epiceditor
 //= require turbolinks
-//= require_tree .
+//= require materialize.min
 //= require_tree ./bundle
+//= require "epiceditor"
