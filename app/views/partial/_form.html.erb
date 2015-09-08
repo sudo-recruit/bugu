@@ -1,21 +1,12 @@
-<%= form_for([@bug, comment = @bug.comments.build]) do |f| %>
-	<div id="epiceditor"></div>
-	<%= f.text_field :content %>
-	<div id="b_selectbox">
-	<%= f.select :change_status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: comment.change_status), {} , class: "form-control" %>
-	<%= f.submit '送出',class: 'btn',id: 'comment-button' %>
-     
-	</div>
+<%= form_for([@bug, comment = @bug.comments.build]) do |f|%>
+  <div id="bug_input">
+  	<div id="epiceditor"></div>
+  	<%= f.text_field :content %>
+  	<div id="b_selectbox">
+  	<%= f.select :change_status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: @bug.status), {} , class: "form-control" %>
+  	<%= f.submit '送出',class: 'btn',id: 'comment-button' %>
+       
+  	</div>
+  </div>
 <% end %>
 
-<script>
-  //GET CONTENT
-  var editor = new EpicEditor().load();
-  $("#comment-button").on('click', function(){
-    editor.preview();
-  	var content = editor.getElement('previewer').getElementById('epiceditor-preview').innerHTML;
-    
-  	$("#comment_content").val(content);
-  	
-  });
-</script>

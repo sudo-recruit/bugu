@@ -2,11 +2,21 @@
 	<div class="row">
 	  <div class="col s12 m12 l8 offset-l2">
 		<%= simple_form_for @bug, :html => {:class => 'form'} do |f| %>
+		
+		<br>
+
 		<%= f.input :title %>
-		<%= f.input :body %>
+		<div id="bug_input">
+		  
+		  <%= f.input :body %>
+		  <div id="epiceditor"></div>
+		</div>
 		<%= f.filepicker_field :filepicker_url %>
 		<%= f.submit '送出' %>
 		<% end %>
 	  </div>
 	</div>
 </div>
+
+<%= content_for :javascripts %>
+<%= javascript_include_tag "bundle/bug_show_bundle.js" %>

@@ -3,7 +3,9 @@ var webpack = require("webpack");
 module.exports = {
   context: __dirname,
   entry: {
-    fronted_index: './js/entry/fronted_index.js'
+    fronted_index: './js/entry/fronted_index.js',
+    comment_form: './js/entry/comment_form.js',
+    bug_show:'./js/entry/bug_show.js'
     
   },
   output: {

@@ -1,10 +1,10 @@
 <div class="row">
-  <h2><%= @bug.title %></h2>
+  <h3><%= @bug.title %></h3>
 	
   <% if @bug.filepicker_url.present? %>
     <%= image_tag @bug.filepicker_url %>
   <% end %>
-  <p><%= @bug.body %></p>
+  <%= simple_format @bug.body %>
   <p><%= convert_chinese @bug %></p>
 </div>
 
@@ -16,3 +16,5 @@
 <div class="row">
   <%= render 'partial/form' %>
 </div>
+<%= content_for :javascripts %>
+<%= javascript_include_tag "bundle/comment_form_bundle.js" %>

@@ -1,2 +1,30 @@
-<%= link_to '我有bug', new_bug_path, class: "btn" %>
-<%= link_to '我要debug', bugs_path, class: "btn" %>
+
+<div class="row">
+  <div class="col s12 m12 l12 center">
+  	<%= link_to '我有bug', new_bug_path, class: "btn" %>
+	<%= link_to '我要debug', bugs_path, class: "btn" %>
+  </div>	
+</div>
+
+<div class="row">
+  <table class="striped">
+  	<thead>
+  	  <tr>
+  	    <td>回報者</td>
+  	  	<td>BUG主旨</td>
+  	  	<td>內容</td>
+  	  	<td>狀態</td>
+  	  </tr>
+  	</thead>
+  	<tbody>
+  	<% @bugs.each do |bug| %>
+  	  <tr>
+  	  	<td><%= bug.title %></td>
+  	  	<td><%= bug.user.name %></td>
+  	  	<td><%= convert_chinese(bug) %></td>
+  	  	<td><%= link_to '詳細內容', bug_path(bug) %></td>
+  	  </tr>
+  	<% end %>
+  	</tbody>
+  </table>
+</div>
