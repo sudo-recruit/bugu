@@ -1,19 +1,20 @@
 
-<div class="row">
-  <div class="col s12 m12 l12 center">
-  	<%= link_to '我有bug', new_bug_path, class: "btn" %>
-	<%= link_to '我要debug', bugs_path, class: "btn" %>
-  </div>	
+<div class="row center">
+  <a href="#" class="btn filters" data-filter="unread">未處理</a>
+  <a href="#" class="btn filters" data-filter="in_process">處理中</a>
+  <a href="#" class="btn filters" data-filter="done">已解決</a>
+  
+  
 </div>
 
 <div class="row">
   <table class="striped">
   	<thead>
   	  <tr>
-  	    <td>回報者</td>
-  	  	<td>BUG主旨</td>
-  	  	<td>內容</td>
-  	  	<td>狀態</td>
+  	    <td><h5>回報者</h5></td>
+  	  	<td><h5>BUG主旨</h5></td>
+  	  	<td><h5>內容</h5></td>
+  	  	<td><h5>狀態</h5></td>
   	  </tr>
   	</thead>
   	<tbody>
@@ -21,10 +22,22 @@
   	  <tr>
         <td><%= bug.user.name %></td>
   	  	<td><%= bug.title %></td>
-  	  	<td><%= convert_chinese(bug) %></td>
-  	  	<td><%= link_to '詳細內容', bug_path(bug) %></td>
+        <td><%= link_to '詳細內容', bug_path(bug) %></td>
+  	  	<td data-status="<%= bug.status %>"><%= convert_chinese(bug) %></td>
   	  </tr>
   	<% end %>
   	</tbody>
   </table>
 </div>
+
+<div class="row">
+  <div class="col s12 m12 l12 center">
+    <%= link_to '我有bug', new_bug_path, class: "btn" %>
+  <%= link_to '我要debug', bugs_path, class: "btn" %>
+  </div>  
+</div>
+
+
+
+<%= content_for :javascripts %>
+<%= javascript_include_tag "bundle/fronted_index_bundle.js" %>

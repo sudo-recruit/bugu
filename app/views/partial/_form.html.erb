@@ -4,9 +4,10 @@
   	<%= f.text_field :content %>
   	<div id="b_selectbox">
   	<%= f.select :change_status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: @bug.status), {} , class: "form-control" %>
-  	<%= f.submit '送出',class: 'btn',id: 'comment-button' %>
+  	
        
   	</div>
+  	<%= f.submit '送出',class: 'btn',id: 'comment-button' %>
   </div>
 <% end %>
 

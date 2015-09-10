@@ -2,11 +2,11 @@
   <h4><%= @bug.title %></h4>
 	
   <div class="col s12 m12 l12">
+    <% if @bug.filepicker_url.present? %>
     <div class="image_container">
-      <% if @bug.filepicker_url.present? %>
-        <%= image_tag @bug.filepicker_url %>
-      <% end %>
+      <%= image_tag @bug.filepicker_url %>
     </div>
+    <% end %>
     <article class="content_area">
       <%= simple_format @bug.body %>    
     </article>
@@ -16,8 +16,9 @@
 </div>
 
 <div class="row">
-  <h3>開發者解決筆記</h3>
-  <%= render @bug.comments %>
+  <h5>開發者筆記</h5>
+  <%= render @bug.comments.order(created_at: :desc) %>
+  
 </div>
 
 <div class="row">

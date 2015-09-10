@@ -15,8 +15,7 @@ class Ability
 
     elsif user.developer?
       can :manage, :all
-      can :manage, Comment
-      can :manage, Bug
+      
     end
  
 

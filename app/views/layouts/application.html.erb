@@ -8,17 +8,18 @@
 </head>
 <body>
 <header>
-  <nav class="dbd_navbar">
+  <nav id="bug_navbar">
     <ul class="right">
       <% if !user_signed_in? %>
       <li><%= link_to "快速登入", user_omniauth_authorize_path(:google_oauth2) %></li>
       <% else %>
       <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to '回到首頁', root_path %></li>
       <% end %>
     </ul>
   </nav>
 </header>
-<div id="<%= current_page %>">	
+<div id="<%= current_page %>" class="fullpage">	
 <div class="container">
   <%= yield %>	
 </div>

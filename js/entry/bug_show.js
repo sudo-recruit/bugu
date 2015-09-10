@@ -1,4 +1,8 @@
-var editor = new EpicEditor().load();
+var editor = new EpicEditor({
+  autogrow: {
+  	minHeight: 500
+  }
+}).load();
  $("input[type=submit]").on('click', function(){
     editor.preview();
   	var content = editor.getElement('previewer').getElementById('epiceditor-preview').innerHTML;
@@ -6,3 +10,5 @@ var editor = new EpicEditor().load();
   	$("#bug_body").val(content);
   	editor.editor.innerHTML="";
 });
+
+ $(".error").hide();
