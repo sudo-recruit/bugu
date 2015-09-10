@@ -26,7 +26,7 @@
 <% if Rails.env.development? %>
   <%= debug params %>
 <% end %>
-
+<%= flash[:notice] %>
 </body>
 <% if notice != nil %>
 <script>

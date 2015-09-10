@@ -19,8 +19,8 @@
   	<tbody>
   	<% @bugs.each do |bug| %>
   	  <tr>
+        <td><%= bug.user.name %></td>
   	  	<td><%= bug.title %></td>
-  	  	<td><%= bug.user.name %></td>
   	  	<td><%= convert_chinese(bug) %></td>
   	  	<td><%= link_to '詳細內容', bug_path(bug) %></td>
   	  </tr>

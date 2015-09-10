@@ -9,8 +9,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
-
- 
+   
+   def developer?
+     return self.role == 0
+   end
+   
+   def user?
+     return self.role == 1
+   end
 
    def self.from_omniauth(access_token)
      data = access_token.info

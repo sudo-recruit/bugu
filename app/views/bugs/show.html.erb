@@ -1,20 +1,29 @@
 <div class="row">
-  <h3><%= @bug.title %></h3>
+  <h4><%= @bug.title %></h4>
 	
-  <% if @bug.filepicker_url.present? %>
-    <%= image_tag @bug.filepicker_url %>
-  <% end %>
-  <%= simple_format @bug.body %>
-  <p><%= convert_chinese @bug %></p>
+  <div class="col s12 m12 l12">
+    <div class="image_container">
+      <% if @bug.filepicker_url.present? %>
+        <%= image_tag @bug.filepicker_url %>
+      <% end %>
+    </div>
+    <article class="content_area">
+      <%= simple_format @bug.body %>    
+    </article>
+  </div>
+  
+  
 </div>
 
 <div class="row">
-  <h3>解決方法</h3>
+  <h3>開發者解決筆記</h3>
   <%= render @bug.comments %>
 </div>
 
 <div class="row">
+  <% if can? Comment,:manage %>
   <%= render 'partial/form' %>
+  <% end %>
 </div>
 <%= content_for :javascripts %>
 <%= javascript_include_tag "bundle/comment_form_bundle.js" %>

@@ -1,5 +1,5 @@
 class FrontedController < ApplicationController
   def index
-  	@bugs = Bug.all
+  	@bugs = Bug.includes(:user).order(created_at: :desc)
   end
 end

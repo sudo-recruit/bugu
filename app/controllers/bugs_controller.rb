@@ -2,7 +2,7 @@ class BugsController < ApplicationController
 
 
   def index
-    @bugs = Bug.all
+    @bugs = Bug.all.order(created_at: :desc)
   end
 
   def show
@@ -22,7 +22,8 @@ class BugsController < ApplicationController
     if @bug.save
       redirect_to bug_path(@bug)
     else
-      render 'new'
+
+      render :new, :notice => "請確認所有欄位都已經填寫完畢" 
     end
   end
 
