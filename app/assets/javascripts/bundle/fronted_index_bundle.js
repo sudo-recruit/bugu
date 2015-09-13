@@ -93,5 +93,10 @@
 	}
 
 
+	$("#showAll").on('click', function(e){
+	  e.preventDefault();
+	  showAllResult();
+	});
+
 /***/ }
 /******/ ]);

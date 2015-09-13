@@ -5,14 +5,14 @@
 		
 		<br>
 
-		<%= f.input :title %>
+		<%= f.input :title, label: "名稱" %>
 		<div id="bug_input">
 		  
-		  <%= f.input :body %>
+		  <%= f.input :body, label: "BUG詳細內容" %>
 		  <div id="epiceditor"></div>
 		</div>
 		<%= f.filepicker_field :filepicker_url %>
-		<%= f.submit '送出' %>
+		<%= f.submit '送出', class: "btn " %>
 		<% end %>
 	  </div>
 	</div>

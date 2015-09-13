@@ -45,3 +45,9 @@ function countStatus(filterString){
   var count = getStatus(filterString).length;
   return count;
 }
+
+
+$("#showAll").on('click', function(e){
+  e.preventDefault();
+  showAllResult();
+});

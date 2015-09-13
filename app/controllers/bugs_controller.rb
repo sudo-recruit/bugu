@@ -35,6 +35,13 @@ class BugsController < ApplicationController
       redirect_to bug_path(@bug)
     end
   end
+  
+  def destroy
+    @bug = Bug.find(params[:id])
+    @bug.destroy
+    
+    redirect_to root_path
+  end
 
   private
 

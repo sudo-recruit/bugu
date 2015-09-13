@@ -9,14 +9,18 @@
 <body>
 <header>
   <nav id="bug_navbar">
-    <ul class="right">
+    
       <% if !user_signed_in? %>
-      <li><%= link_to "快速登入", user_omniauth_authorize_path(:google_oauth2) %></li>
+      <ul class="right">
+        <li><%= link_to "快速登入", user_omniauth_authorize_path(:google_oauth2) %></li>
+      </ul>
       <% else %>
-      <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
-      <li><%= link_to '回到首頁', root_path %></li>
+      <ul class="right"><li><%= link_to '登出', destroy_user_session_path, method: :delete %></li></ul>
+      <ul class="left">
+        <li><%= link_to '回到首頁', root_path %></li>  
+      </ul>
       <% end %>
-    </ul>
+    
   </nav>
 </header>
 <div id="<%= current_page %>" class="fullpage">	
